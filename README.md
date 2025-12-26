@@ -30,13 +30,13 @@ lecture_ref/
 
 ## 🎯 Session Overview
 
-### Section 1: Advanced Python for AI (30 min)
+### Section 1: Advanced Python for AI
 - Object-Oriented Programming as Agent Identities
 - Pydantic & Type Hinting
 - Decorators for AI Functions
 - **Practical**: Hands-on coding exercises
 
-### Section 2: AI Basics & Security (15 min)
+### Section 2: AI Basics & Security
 - Prompt Engineering Fundamentals
 - Prompt Injection & Jailbreaking
 - Security Guardrails

@@ -1,6 +1,6 @@
 # 8. Math Fundamentals: Softmax, Tokenization & Temperature
 
-![InavLabs Logo](../../public/images/inavlabs.png)
+<img src="../../public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 
 ## 🎯 Learning Objectives
 
@@ -470,5 +470,5 @@ Ready to build a complete product? Let's move to:
 
 **Remember:** Math is the language of AI! Understanding it makes you a better AI engineer! 📊
 
-![InavLabs Logo](../../public/images/inavlabs.png)
+<img src="../../public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 

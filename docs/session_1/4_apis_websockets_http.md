@@ -1,6 +1,6 @@
 # 4. APIs, WebSockets & HTTP Streaming
 
-![InavLabs Logo](../../public/images/inavlabs.png)
+<img src="../../public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 
 ## 🎯 Learning Objectives
 
@@ -406,5 +406,5 @@ Ready to use real AI APIs? Let's move to:
 
 **Pro Tip:** Start with simple GET requests, then move to POST, then try streaming! 🚀
 
-![InavLabs Logo](../../public/images/inavlabs.png)
+<img src="../../public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 

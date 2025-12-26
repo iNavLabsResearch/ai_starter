@@ -1,6 +1,6 @@
 # Session 1: AI Engineering Bootcamp - Complete Guide
 
-![InavLabs Logo](../../public/images/inavlabs.png)
+<img src="../../public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 
 ## 📚 Welcome to Session 1!
 
@@ -216,5 +216,5 @@ If you have questions:
 
 Remember: Every expert was once a beginner. You've got this! 💪
 
-![InavLabs Logo](../../public/images/inavlabs.png)
+<img src="../../public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 

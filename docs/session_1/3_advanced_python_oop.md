@@ -1,6 +1,6 @@
 # 3. Advanced Python for AI: OOP, Pydantic & Decorators
 
-![InavLabs Logo](../../public/images/inavlabs.png)
+<img src="../../public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 
 ## 🎯 Learning Objectives
 
@@ -515,5 +515,5 @@ Ready to connect to real AI? Let's move to:
 
 **Remember:** These concepts are the foundation of professional AI engineering! 💪
 
-![InavLabs Logo](../../public/images/inavlabs.png)
+<img src="../../public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 

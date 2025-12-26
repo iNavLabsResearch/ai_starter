@@ -1,6 +1,6 @@
 # 6. AI Basics & Security: Prompt Engineering & Guardrails
 
-![InavLabs Logo](../../public/images/inavlabs.png)
+<img src="../../public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 
 ## 🎯 Learning Objectives
 
@@ -335,5 +335,5 @@ Ready to build a secure bot? Let's move to:
 
 **Remember:** Security is not optional - it's essential! 🔒
 
-![InavLabs Logo](../../public/images/inavlabs.png)
+<img src="../../public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 

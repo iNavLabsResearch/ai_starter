@@ -1,6 +1,6 @@
 # 2. Python for AI: Essential Skills
 
-![InavLabs Logo](../../public/images/inavlabs.png)
+<img src="../../public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 
 ## 🎯 Learning Objectives
 
@@ -390,5 +390,5 @@ Ready for advanced concepts? Let's move to:
 
 **Pro Tip:** Practice these concepts by writing small programs. The more you code, the better you get! 💪
 
-![InavLabs Logo](../../public/images/inavlabs.png)
+<img src="../../public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 

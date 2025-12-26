@@ -1,6 +1,6 @@
 # 9. Product v1: The Secure Intern - Streamlit Chatbot
 
-![InavLabs Logo](../../public/images/inavlabs.png)
+<img src="../../public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 
 ## 🎯 Learning Objectives
 
@@ -468,5 +468,5 @@ This chatbot can be used for:
 
 **Congratulations!** You've built a complete, production-ready AI chatbot! 🎉
 
-![InavLabs Logo](../../public/images/inavlabs.png)
+<img src="../../public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 

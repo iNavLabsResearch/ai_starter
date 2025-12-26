@@ -1,6 +1,6 @@
 # 5. Practical: Gemini & OpenAI Integration
 
-![InavLabs Logo](../../public/images/inavlabs.png)
+<img src="../../public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 
 ## 🎯 Learning Objectives
 
@@ -471,5 +471,5 @@ Ready to learn about security? Let's move to:
 
 **Pro Tip:** Start with non-streaming, then add streaming for better UX! 🚀
 
-![InavLabs Logo](../../public/images/inavlabs.png)
+<img src="../../public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 

@@ -1,6 +1,6 @@
 # 🚀 AI Engineering Bootcamp - Session 1
 
-![InavLabs Logo](public/images/inavlabs.png)
+<img src="public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 
 Welcome to the **AI Engineering Bootcamp**! This repository contains all materials, code examples, and practical exercises for Session 1.
 
@@ -123,5 +123,5 @@ For questions or support, reach out to the InavLabs team.
 
 **Happy Learning! 🚀**
 
-![InavLabs Logo](public/images/inavlabs.png)
+<img src="public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 

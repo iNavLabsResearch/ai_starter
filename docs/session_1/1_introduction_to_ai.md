@@ -1,6 +1,6 @@
 # 1. Introduction to AI: The Complete Journey
 
-![InavLabs Logo](../../public/images/inavlabs.png)
+<img src="../../public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 
 ## 🎯 Learning Objectives
 
@@ -219,5 +219,5 @@ Ready to dive into Python? Let's move to:
 
 **Remember:** Every expert was once a beginner. You've got this! 💪
 
-![InavLabs Logo](../../public/images/inavlabs.png)
+<img src="../../public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 

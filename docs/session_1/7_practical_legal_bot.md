@@ -1,6 +1,6 @@
 # 7. Practical: Secure Legal-Advice Bot
 
-![InavLabs Logo](../../public/images/inavlabs.png)
+<img src="../../public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 
 ## 🎯 Learning Objectives
 
@@ -437,5 +437,5 @@ Ready to learn the math behind AI? Let's move to:
 
 **Remember:** Security is not a feature - it's a requirement! 🔒
 
-![InavLabs Logo](../../public/images/inavlabs.png)
+<img src="../../public/images/inavlabs.png" alt="InavLabs Logo" width="100" height="100">
 

@@ -85,10 +85,11 @@ Assign a role to AI:
 
 ```python
 prompt = """
-You are an expert Python teacher for BCA students.
-Explain variables in Python with simple examples.
+You are an expert Biology teacher for high school students.
+Explain variables in Python looks like.
 """
 ```
+it will respond about python snake not language.
 
 **Business Application:**
 - **Customer Service:** "You are a friendly support agent..."

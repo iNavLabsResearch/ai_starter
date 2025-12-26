@@ -63,6 +63,36 @@ print(response)  # ChatBot says: I understand 'Hello!'
 
 ### Inheritance: Specialized Agents
 
+```mermaid
+classDiagram
+    class AIAgent {
+        +str name
+        +list knowledge_base
+        +learn(information)
+        +respond(query)
+    }
+    
+    class LegalAgent {
+        +str domain
+        +list restricted_topics
+        +respond(query) *override
+    }
+    
+    class SalesAgent {
+        +str department
+        +respond(query) *override
+    }
+    
+    class SupportAgent {
+        +int ticket_count
+        +respond(query) *override
+    }
+    
+    AIAgent <|-- LegalAgent
+    AIAgent <|-- SalesAgent
+    AIAgent <|-- SupportAgent
+```
+
 ```python
 class AIAgent:
     """Base AI agent"""
@@ -215,6 +245,24 @@ print(config.model_name)  # "gpt-4
 Decorators are like "wrappers" that add functionality to functions without changing the function itself.
 
 **Real-world analogy:** Like adding a security guard to a building entrance - the building (function) stays the same, but now it's protected!
+
+```mermaid
+graph LR
+    A[Original Function] --> B[Decorator]
+    B --> C[Enhanced Function]
+    C --> D[Logging]
+    C --> E[Retry Logic]
+    C --> F[Rate Limiting]
+    C --> G[Caching]
+    
+    style A fill:#ffebee
+    style B fill:#fce4ec
+    style C fill:#f3e5f5
+    style D fill:#e1bee7
+    style E fill:#ce93d8
+    style F fill:#ba68c8
+    style G fill:#ab47bc
+```
 
 ### Basic Decorator
 

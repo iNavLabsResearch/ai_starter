@@ -47,6 +47,20 @@ Softmax(x_i) = e^(x_i) / Σ(e^(x_j)) for all j
 2. Sum all exponentials
 3. Divide each exponential by the sum
 
+```mermaid
+graph LR
+    A[Input Scores<br/>5, 3, 2] --> B[Calculate e^x<br/>e^5, e^3, e^2]
+    B --> C[Sum Exponentials<br/>Σ e^x]
+    C --> D[Divide Each<br/>e^x / Σ]
+    D --> E[Probabilities<br/>0.84, 0.11, 0.05]
+    
+    style A fill:#e3f2fd
+    style B fill:#fff3e0
+    style C fill:#f3e5f5
+    style D fill:#e8f5e9
+    style E fill:#c8e6c9
+```
+
 ### Python Implementation
 
 ```python
@@ -138,6 +152,20 @@ for word, prob in word_probs.items():
 - Like breaking a sentence into words
 
 ### Types of Tokenization
+
+```mermaid
+graph TD
+    A[Input Text<br/>Hello World!] --> B{Tokenization Type}
+    B -->|Word-Level| C[Tokens:<br/>Hello, World!]
+    B -->|Character-Level| D[Tokens:<br/>H, e, l, l, o, ...]
+    B -->|Subword BPE| E[Tokens:<br/>Hel, lo, Wor, ld]
+    
+    style A fill:#e3f2fd
+    style B fill:#fff3e0
+    style C fill:#c8e6c9
+    style D fill:#ffccbc
+    style E fill:#b2dfdb
+```
 
 #### 1. **Word-Level Tokenization**
 
@@ -270,6 +298,24 @@ print(stats)
 ### How Temperature Works
 
 Temperature modifies probabilities before sampling:
+
+```mermaid
+graph LR
+    A[Logits<br/>5.0, 3.0, 2.0] --> B{Temperature}
+    B -->|Low 0.5| C[Focused<br/>High prob for best]
+    B -->|Medium 1.0| D[Balanced<br/>Moderate distribution]
+    B -->|High 2.0| E[Creative<br/>More uniform]
+    
+    C --> F[Deterministic Output]
+    D --> G[Natural Output]
+    E --> H[Creative Output]
+    
+    style A fill:#e3f2fd
+    style B fill:#fff3e0
+    style C fill:#ffebee
+    style D fill:#e8f5e9
+    style E fill:#f3e5f5
+```
 
 ```python
 import numpy as np

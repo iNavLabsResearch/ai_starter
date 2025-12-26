@@ -44,6 +44,25 @@ student = {
 
 ## 📊 Data Structures for AI
 
+```mermaid
+graph TD
+    A[Data Structures] --> B[Lists<br/>Ordered, Mutable]
+    A --> C[Dictionaries<br/>Key-Value Pairs]
+    A --> D[Tuples<br/>Ordered, Immutable]
+    A --> E[Sets<br/>Unique Elements]
+    
+    B --> F[AI Use:<br/>Training Data]
+    C --> G[AI Use:<br/>Configurations]
+    D --> H[AI Use:<br/>Constants]
+    E --> I[AI Use:<br/>Unique Tokens]
+    
+    style A fill:#e3f2fd
+    style B fill:#c8e6c9
+    style C fill:#fff9c4
+    style D fill:#ffccbc
+    style E fill:#f8bbd0
+```
+
 ### Lists - Your Best Friend
 
 ```python

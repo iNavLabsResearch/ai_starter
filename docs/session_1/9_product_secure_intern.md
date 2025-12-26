@@ -29,6 +29,32 @@ By the end of this section, you'll:
 
 ## 🏗️ Architecture
 
+```mermaid
+flowchart TD
+    A[User Interface<br/>Streamlit] --> B[Input Validation]
+    B -->|Valid| C[Security Check]
+    B -->|Invalid| D[Show Error]
+    C -->|Safe| E[AI API Call<br/>OpenAI/Gemini]
+    C -->|Unsafe| D
+    E --> F[Response Filter]
+    F -->|Safe| G[Display Response]
+    F -->|Unsafe| H[Sanitize & Display]
+    
+    I[Session State] --> A
+    I --> B
+    I --> C
+    
+    style A fill:#e3f2fd
+    style B fill:#fff3e0
+    style C fill:#fce4ec
+    style D fill:#ffebee
+    style E fill:#f3e5f5
+    style F fill:#e8f5e9
+    style G fill:#c8e6c9
+    style H fill:#fff9c4
+    style I fill:#f1f8e9
+```
+
 ```
 Streamlit UI → Input Validation → Security Check → AI API → Response Filter → Display
                     ↓                    ↓

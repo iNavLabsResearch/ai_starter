@@ -24,6 +24,18 @@ By the end of this section, you'll:
 
 ### How APIs Work
 
+```mermaid
+sequenceDiagram
+    participant Client as Your Code
+    participant API as API Server
+    
+    Client->>API: HTTP Request (GET/POST)
+    API->>API: Process Request
+    API->>Client: HTTP Response (JSON/Data)
+    
+    Note over Client,API: Request-Response Pattern
+```
+
 ```
 Your Code → HTTP Request → API Server → Process → HTTP Response → Your Code
 ```
@@ -95,6 +107,26 @@ print(response.json())
 - **HTTP:** Asking "What's the weather?" → Getting answer → Done
 - **WebSocket:** Opening weather app → Continuous updates every second
 
+```mermaid
+graph TB
+    subgraph HTTP["HTTP (Request-Response)"]
+        A1[Client] -->|Request| B1[Server]
+        B1 -->|Response| A1
+        A1 -.->|Connection Closes| B1
+    end
+    
+    subgraph WebSocket["WebSocket (Persistent)"]
+        A2[Client] -->|Connect| B2[Server]
+        B2 -->|Connected| A2
+        A2 <-->|Bidirectional| B2
+        A2 <-->|Real-time| B2
+        A2 <-->|Continuous| B2
+    end
+    
+    style HTTP fill:#e3f2fd
+    style WebSocket fill:#f3e5f5
+```
+
 ### WebSocket Use Cases
 
 1. **Chat Applications:** Real-time messaging
@@ -147,6 +179,25 @@ asyncio.run(chat_client())
 **HTTP Streaming:**
 - Send request → Get response word-by-word as it's generated
 - Like watching a video: starts playing immediately, not after download
+
+```mermaid
+graph LR
+    subgraph Traditional["Traditional HTTP"]
+        A1[Request] --> B1[Wait 10-30s]
+        B1 --> C1[Complete Response]
+    end
+    
+    subgraph Streaming["HTTP Streaming"]
+        A2[Request] --> B2[Word 1]
+        B2 --> C2[Word 2]
+        C2 --> D2[Word 3]
+        D2 --> E2[...]
+        E2 --> F2[Complete]
+    end
+    
+    style Traditional fill:#ffebee
+    style Streaming fill:#e8f5e9
+```
 
 ### Streaming with Requests
 

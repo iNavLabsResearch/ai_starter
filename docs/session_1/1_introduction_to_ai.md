@@ -16,6 +16,20 @@ By the end of this section, you'll understand:
 
 Think of AI like building a house. You can't start with the roof - you need a solid foundation first!
 
+```mermaid
+graph TD
+    A[Data<br/>Raw Information] --> B[Machine Learning<br/>Finding Patterns]
+    B --> C[Deep Learning<br/>Neural Networks]
+    C --> D[Artificial Intelligence<br/>Complete Systems]
+    D --> E[Agentic AI<br/>Autonomous Agents]
+    
+    style A fill:#e1f5ff
+    style B fill:#b3e5fc
+    style C fill:#81d4fa
+    style D fill:#4fc3f7
+    style E fill:#29b6f6
+```
+
 ### 1. **Data** - The Foundation 🏗️
 
 **What is it?** Raw information, facts, numbers, text, images - everything!
@@ -73,6 +87,20 @@ customer_data = {
 - **Image Recognition:** Google Photos finding all photos of "dogs"
 
 **Why "Deep"?** Multiple layers of neurons process information, just like our brain!
+
+```mermaid
+graph LR
+    A[Input Image] --> B[Layer 1<br/>Detect Edges]
+    B --> C[Layer 2<br/>Detect Shapes]
+    C --> D[Layer 3<br/>Detect Objects]
+    D --> E[Output<br/>Classification]
+    
+    style A fill:#fff3e0
+    style B fill:#ffe0b2
+    style C fill:#ffcc80
+    style D fill:#ffb74d
+    style E fill:#ffa726
+```
 
 ```python
 # Deep Learning = Multiple layers of processing

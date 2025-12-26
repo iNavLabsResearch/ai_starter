@@ -14,6 +14,17 @@ By the end of this section, you'll:
 
 ## 🤖 Part 1: Google Gemini API
 
+```mermaid
+sequenceDiagram
+    participant App as Your Application
+    participant Gemini as Gemini API
+    
+    App->>Gemini: POST Request (Prompt)
+    Gemini->>Gemini: Process with AI Model
+    Gemini->>App: JSON Response (Text)
+    App->>App: Extract & Display
+```
+
 ### Setting Up Gemini
 
 ```python
@@ -121,6 +132,26 @@ print()  # New line at end
 ---
 
 ## 🎨 Part 2: OpenAI API
+
+```mermaid
+graph LR
+    A[Your App] -->|API Key| B[OpenAI API]
+    B -->|GPT-3.5/GPT-4| C[AI Model]
+    C -->|Response| B
+    B -->|JSON| A
+    
+    D[Your App] -->|API Key| E[Gemini API]
+    E -->|Gemini Pro| F[AI Model]
+    F -->|Response| E
+    E -->|JSON| D
+    
+    style A fill:#e3f2fd
+    style B fill:#c8e6c9
+    style C fill:#fff9c4
+    style D fill:#e3f2fd
+    style E fill:#ffccbc
+    style F fill:#f8bbd0
+```
 
 ### Basic OpenAI Integration
 

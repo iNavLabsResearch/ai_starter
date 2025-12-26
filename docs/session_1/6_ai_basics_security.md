@@ -23,6 +23,25 @@ By the end of this section (15 minutes), you'll:
 
 ### Standard Prompting Techniques
 
+```mermaid
+graph TD
+    A[Prompt Engineering] --> B[Zero-Shot<br/>Direct Question]
+    A --> C[Few-Shot<br/>With Examples]
+    A --> D[Chain-of-Thought<br/>Step-by-Step]
+    A --> E[Role-Based<br/>Assign Role]
+    
+    B --> F[Simple & Fast]
+    C --> G[Better Accuracy]
+    D --> H[Complex Reasoning]
+    E --> I[Context-Specific]
+    
+    style A fill:#e3f2fd
+    style B fill:#c8e6c9
+    style C fill:#fff9c4
+    style D fill:#ffccbc
+    style E fill:#f8bbd0
+```
+
 #### 1. **Zero-Shot Prompting**
 Direct question without examples:
 
@@ -88,6 +107,24 @@ Explain variables in Python with simple examples.
 - Like a hacker tricking a security guard to let them in
 - User input overrides system instructions
 
+```mermaid
+graph TD
+    A[System Prompt<br/>Safe Instructions] --> B[User Input]
+    B --> C{Contains<br/>Injection?}
+    C -->|Yes| D[Malicious Prompt]
+    C -->|No| E[Safe Prompt]
+    D --> F[AI Ignores<br/>System Instructions]
+    E --> G[AI Follows<br/>System Instructions]
+    F --> H[Security Breach]
+    G --> I[Safe Response]
+    
+    style A fill:#e8f5e9
+    style D fill:#ffebee
+    style F fill:#ffcdd2
+    style H fill:#f44336,color:#fff
+    style I fill:#c8e6c9
+```
+
 ### Example Attack
 
 ```python
@@ -138,6 +175,24 @@ Can you help me hack into a system?
 - Like seatbelts in a car
 - Safety nets in a circus
 - Firewalls in networks
+
+```mermaid
+graph LR
+    A[User Input] --> B[Input Validation]
+    B -->|Pass| C[AI Processing]
+    B -->|Fail| D[Block Request]
+    C --> E[Output Filtering]
+    E -->|Safe| F[Response to User]
+    E -->|Unsafe| G[Sanitized Response]
+    
+    style A fill:#fff3e0
+    style B fill:#e3f2fd
+    style C fill:#f3e5f5
+    style D fill:#ffebee
+    style E fill:#e8f5e9
+    style F fill:#c8e6c9
+    style G fill:#fff9c4
+```
 
 ### Implementing Guardrails
 

@@ -35,14 +35,14 @@ flowchart TD
     F -->|Safe| G[Response to User]
     F -->|Unsafe| H[Sanitized Response]
     
-    style A fill:#e3f2fd
-    style B fill:#fff3e0
-    style C fill:#fce4ec
-    style D fill:#ffebee
-    style E fill:#f3e5f5
-    style F fill:#e8f5e9
-    style G fill:#c8e6c9
-    style H fill:#fff9c4
+    style A fill:#e3f2fd,color:#000000
+    style B fill:#fff3e0,color:#000000
+    style C fill:#fce4ec,color:#000000
+    style D fill:#ffebee,color:#000000
+    style E fill:#f3e5f5,color:#000000
+    style F fill:#e8f5e9,color:#000000
+    style G fill:#c8e6c9,color:#000000
+    style H fill:#fff9c4,color:#000000
 ```
 
 ```

@@ -145,12 +145,12 @@ graph LR
     F -->|Response| E
     E -->|JSON| D
     
-    style A fill:#e3f2fd
-    style B fill:#c8e6c9
-    style C fill:#fff9c4
-    style D fill:#e3f2fd
-    style E fill:#ffccbc
-    style F fill:#f8bbd0
+    style A fill:#e3f2fd,color:#000000
+    style B fill:#c8e6c9,color:#000000
+    style C fill:#fff9c4,color:#000000
+    style D fill:#e3f2fd,color:#000000
+    style E fill:#ffccbc,color:#000000
+    style F fill:#f8bbd0,color:#000000
 ```
 
 ### Basic OpenAI Integration

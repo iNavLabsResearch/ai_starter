@@ -56,11 +56,11 @@ graph TD
     D --> H[AI Use:<br/>Constants]
     E --> I[AI Use:<br/>Unique Tokens]
     
-    style A fill:#e3f2fd
-    style B fill:#c8e6c9
-    style C fill:#fff9c4
-    style D fill:#ffccbc
-    style E fill:#f8bbd0
+    style A fill:#e3f2fd,color:#000000
+    style B fill:#c8e6c9,color:#000000
+    style C fill:#fff9c4,color:#000000
+    style D fill:#ffccbc,color:#000000
+    style E fill:#f8bbd0,color:#000000
 ```
 
 ### Lists - Your Best Friend

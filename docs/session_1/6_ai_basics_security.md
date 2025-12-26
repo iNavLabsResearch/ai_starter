@@ -35,11 +35,11 @@ graph TD
     D --> H[Complex Reasoning]
     E --> I[Context-Specific]
     
-    style A fill:#e3f2fd
-    style B fill:#c8e6c9
-    style C fill:#fff9c4
-    style D fill:#ffccbc
-    style E fill:#f8bbd0
+    style A fill:#e3f2fd,color:#000000
+    style B fill:#c8e6c9,color:#000000
+    style C fill:#fff9c4,color:#000000
+    style D fill:#ffccbc,color:#000000
+    style E fill:#f8bbd0,color:#000000
 ```
 
 #### 1. **Zero-Shot Prompting**
@@ -118,11 +118,11 @@ graph TD
     F --> H[Security Breach]
     G --> I[Safe Response]
     
-    style A fill:#e8f5e9
-    style D fill:#ffebee
-    style F fill:#ffcdd2
-    style H fill:#f44336,color:#fff
-    style I fill:#c8e6c9
+    style A fill:#e8f5e9,color:#000000
+    style D fill:#ffebee,color:#000000
+    style F fill:#ffcdd2,color:#000000
+    style H fill:#f44336,color:#000000
+    style I fill:#c8e6c9,color:#000000
 ```
 
 ### Example Attack
@@ -185,13 +185,13 @@ graph LR
     E -->|Safe| F[Response to User]
     E -->|Unsafe| G[Sanitized Response]
     
-    style A fill:#fff3e0
-    style B fill:#e3f2fd
-    style C fill:#f3e5f5
-    style D fill:#ffebee
-    style E fill:#e8f5e9
-    style F fill:#c8e6c9
-    style G fill:#fff9c4
+    style A fill:#fff3e0,color:#000000
+    style B fill:#e3f2fd,color:#000000
+    style C fill:#f3e5f5,color:#000000
+    style D fill:#ffebee,color:#000000
+    style E fill:#e8f5e9,color:#000000
+    style F fill:#c8e6c9,color:#000000
+    style G fill:#fff9c4,color:#000000
 ```
 
 ### Implementing Guardrails

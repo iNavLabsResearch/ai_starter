@@ -23,11 +23,11 @@ graph TD
     C --> D[Artificial Intelligence<br/>Complete Systems]
     D --> E[Agentic AI<br/>Autonomous Agents]
     
-    style A fill:#e1f5ff
-    style B fill:#b3e5fc
-    style C fill:#81d4fa
-    style D fill:#4fc3f7
-    style E fill:#29b6f6
+    style A fill:#e1f5ff,color:#000000
+    style B fill:#b3e5fc,color:#000000
+    style C fill:#81d4fa,color:#000000
+    style D fill:#4fc3f7,color:#000000
+    style E fill:#29b6f6,color:#000000
 ```
 
 ### 1. **Data** - The Foundation 🏗️
@@ -95,11 +95,11 @@ graph LR
     C --> D[Layer 3<br/>Detect Objects]
     D --> E[Output<br/>Classification]
     
-    style A fill:#fff3e0
-    style B fill:#ffe0b2
-    style C fill:#ffcc80
-    style D fill:#ffb74d
-    style E fill:#ffa726
+    style A fill:#fff3e0,color:#000000
+    style B fill:#ffe0b2,color:#000000
+    style C fill:#ffcc80,color:#000000
+    style D fill:#ffb74d,color:#000000
+    style E fill:#ffa726,color:#000000
 ```
 
 ```python

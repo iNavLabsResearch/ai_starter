@@ -54,11 +54,11 @@ graph LR
     C --> D[Divide Each<br/>e^x / Σ]
     D --> E[Probabilities<br/>0.84, 0.11, 0.05]
     
-    style A fill:#e3f2fd
-    style B fill:#fff3e0
-    style C fill:#f3e5f5
-    style D fill:#e8f5e9
-    style E fill:#c8e6c9
+    style A fill:#e3f2fd,color:#000000
+    style B fill:#fff3e0,color:#000000
+    style C fill:#f3e5f5,color:#000000
+    style D fill:#e8f5e9,color:#000000
+    style E fill:#c8e6c9,color:#000000
 ```
 
 ### Python Implementation
@@ -160,11 +160,11 @@ graph TD
     B -->|Character-Level| D[Tokens:<br/>H, e, l, l, o, ...]
     B -->|Subword BPE| E[Tokens:<br/>Hel, lo, Wor, ld]
     
-    style A fill:#e3f2fd
-    style B fill:#fff3e0
-    style C fill:#c8e6c9
-    style D fill:#ffccbc
-    style E fill:#b2dfdb
+    style A fill:#e3f2fd,color:#000000
+    style B fill:#fff3e0,color:#000000
+    style C fill:#c8e6c9,color:#000000
+    style D fill:#ffccbc,color:#000000
+    style E fill:#b2dfdb,color:#000000
 ```
 
 #### 1. **Word-Level Tokenization**
@@ -310,11 +310,11 @@ graph LR
     D --> G[Natural Output]
     E --> H[Creative Output]
     
-    style A fill:#e3f2fd
-    style B fill:#fff3e0
-    style C fill:#ffebee
-    style D fill:#e8f5e9
-    style E fill:#f3e5f5
+    style A fill:#e3f2fd,color:#000000
+    style B fill:#fff3e0,color:#000000
+    style C fill:#ffebee,color:#000000
+    style D fill:#e8f5e9,color:#000000
+    style E fill:#f3e5f5,color:#000000
 ```
 
 ```python

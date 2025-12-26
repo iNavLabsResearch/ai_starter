@@ -255,13 +255,13 @@ graph LR
     C --> F[Rate Limiting]
     C --> G[Caching]
     
-    style A fill:#ffebee
-    style B fill:#fce4ec
-    style C fill:#f3e5f5
-    style D fill:#e1bee7
-    style E fill:#ce93d8
-    style F fill:#ba68c8
-    style G fill:#ab47bc
+    style A fill:#ffebee,color:#000000
+    style B fill:#fce4ec,color:#000000
+    style C fill:#f3e5f5,color:#000000
+    style D fill:#e1bee7,color:#000000
+    style E fill:#ce93d8,color:#000000
+    style F fill:#ba68c8,color:#000000
+    style G fill:#ab47bc,color:#000000
 ```
 
 ### Basic Decorator

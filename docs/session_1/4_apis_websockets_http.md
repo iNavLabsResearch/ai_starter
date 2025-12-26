@@ -123,8 +123,8 @@ graph TB
         A2 <-->|Continuous| B2
     end
     
-    style HTTP fill:#e3f2fd
-    style WebSocket fill:#f3e5f5
+    style HTTP fill:#e3f2fd,color:#000000
+    style WebSocket fill:#f3e5f5,color:#000000
 ```
 
 ### WebSocket Use Cases
@@ -195,8 +195,8 @@ graph LR
         E2 --> F2[Complete]
     end
     
-    style Traditional fill:#ffebee
-    style Streaming fill:#e8f5e9
+    style Traditional fill:#ffebee,color:#000000
+    style Streaming fill:#e8f5e9,color:#000000
 ```
 
 ### Streaming with Requests

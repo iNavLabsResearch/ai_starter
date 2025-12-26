@@ -372,6 +372,98 @@ for word, prob in zip(words, probs_high):
     print(f"  {word}: {prob:.2%}")
 ```
 
+### 🔍 Understanding Temperature vs Softmax: The Complete Picture
+
+**Key Question: What's the difference between Temperature and Softmax, and which comes first?**
+
+#### **The Difference:**
+
+1. **Softmax:**
+   - **What it does:** Converts raw scores (logits) into probabilities
+   - **Always needed:** You MUST use softmax to get probabilities from logits
+   - **Fixed operation:** Always does the same thing (e^x / sum(e^x))
+   - **Result:** Probabilities that add up to 100%
+
+2. **Temperature:**
+   - **What it does:** Modifies logits BEFORE softmax to control randomness
+   - **Optional control:** You can use it to adjust how the model behaves
+   - **Variable operation:** Changes based on temperature value
+   - **Effect:** Makes probabilities more focused (low temp) or more uniform (high temp)
+
+#### **The Order of Operations:**
+
+```mermaid
+graph LR
+    A[Logits<br/>Raw Scores<br/>5.0, 3.0, 2.0] --> B[Temperature<br/>Divide by T<br/>FIRST STEP]
+    B --> C[Scaled Logits<br/>10.0, 6.0, 4.0<br/>if T=0.5]
+    C --> D[Softmax<br/>Convert to Probabilities<br/>SECOND STEP]
+    D --> E[Probabilities<br/>0.84, 0.11, 0.05]
+    
+    style A fill:#e3f2fd,color:#000000
+    style B fill:#fff3e0,color:#000000
+    style C fill:#f3e5f5,color:#000000
+    style D fill:#e8f5e9,color:#000000
+    style E fill:#c8e6c9,color:#000000
+```
+
+**Step-by-Step Process:**
+
+1. **Model outputs logits** → `[5.0, 3.0, 2.0]` (raw scores)
+2. **Apply temperature FIRST** → Divide by temperature: `[5.0/T, 3.0/T, 2.0/T]`
+   - If T=0.5: `[10.0, 6.0, 4.0]` (differences amplified)
+   - If T=2.0: `[2.5, 1.5, 1.0]` (differences reduced)
+3. **Apply softmax SECOND** → Convert scaled logits to probabilities
+   - Formula: `e^(scaled_logit) / sum(e^(all_scaled_logits))`
+4. **Result** → Probabilities ready for sampling
+
+#### **What Exactly is Happening? (Conclusion)**
+
+**The Complete Flow:**
+
+```python
+# Step 1: Model gives us logits
+logits = [5.0, 3.0, 2.0, 1.0]
+
+# Step 2: Temperature modifies logits (FIRST)
+temperature = 0.5
+scaled_logits = logits / temperature  # [10.0, 6.0, 4.0, 2.0]
+
+# Step 3: Softmax converts to probabilities (SECOND)
+exp_scores = [e^10.0, e^6.0, e^4.0, e^2.0]
+sum_exp = sum(exp_scores)
+probabilities = [exp / sum_exp for exp in exp_scores]
+# Result: [0.97, 0.02, 0.01, 0.00] - Very focused!
+```
+
+**Key Insights:**
+
+1. **Temperature is applied FIRST** - It modifies the logits before softmax
+2. **Softmax is applied SECOND** - It always converts (scaled) logits to probabilities
+3. **Temperature controls the "spread"** - Low temp = focused, High temp = creative
+4. **Softmax is mandatory** - You can't skip it; it's how logits become probabilities
+5. **Together they work:** Temperature adjusts, Softmax converts
+
+**Real-World Analogy:**
+- **Logits** = Raw exam scores (85, 72, 68, 45)
+- **Temperature** = Grading curve adjustment (make differences bigger/smaller)
+- **Softmax** = Converting to percentages (must add up to 100%)
+
+**Summary Table:**
+
+| Aspect | Temperature | Softmax |
+|--------|-------------|---------|
+| **When Applied** | First (before softmax) | Second (after temperature) |
+| **What It Does** | Scales logits | Converts to probabilities |
+| **Is It Required?** | Optional (control parameter) | Required (always needed) |
+| **What It Controls** | Randomness/creativity | Probability distribution |
+| **Can You Skip It?** | Yes (use T=1.0) | No (must convert logits) |
+
+**Final Answer:**
+- **Temperature comes FIRST** - It modifies logits by dividing them
+- **Softmax comes SECOND** - It converts the (possibly scaled) logits to probabilities
+- **Both work together** - Temperature adjusts the input, Softmax converts to output
+- **You always need softmax** - But temperature is optional (default T=1.0 means no change)
+
 ### Temperature Effects
 
 ```python

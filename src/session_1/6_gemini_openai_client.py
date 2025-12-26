@@ -17,7 +17,7 @@ class GeminiClient:
     
     def chat(self, prompt: str) -> str:
         """Send prompt to Gemini and get response"""
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={self.api_key}"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={self.api_key}"
         
         payload = {
             "contents": [{

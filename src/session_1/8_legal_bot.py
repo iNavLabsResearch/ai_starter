@@ -6,17 +6,26 @@ Reference: docs/session_1/7_practical_legal_bot.md
 import requests
 import re
 from typing import Tuple
-from security_guard import SecurityGuard
 
 
 class SecureLegalBot:
     """Secure legal advice bot"""
     
-    def __init__(self, api_key: str, provider: str = "openai"):
+    def __init__(self, api_key: str, provider: str = "gemini"):
         """Initialize legal bot"""
         self.api_key = api_key
         self.provider = provider
-        self.security = SecurityGuard()
+        
+        # Security keywords (inline security check)
+        self.illegal_keywords = [
+            "how to hack", "how to steal", "how to cheat",
+            "illegal way", "break the law", "avoid taxes illegally",
+            "money laundering", "drug dealing", "weapon", "violence"
+        ]
+        self.injection_patterns = [
+            r"ignore.*instruction", r"forget.*you.*are",
+            r"system.*prompt", r"previous.*instruction"
+        ]
         
         # System prompt with strict boundaries
         self.system_prompt = """You are a legal information assistant.
@@ -66,7 +75,7 @@ Your responses should be:
     
     def _call_gemini(self, prompt: str) -> str:
         """Call Gemini API"""
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={self.api_key}"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={self.api_key}"
         
         full_prompt = f"{self.system_prompt}\n\nUser Question: {prompt}"
         
@@ -100,10 +109,26 @@ Your responses should be:
         
         return response
     
+    def _validate_input(self, query: str) -> Tuple[bool, str]:
+        """Validate input for security"""
+        query_lower = query.lower()
+        
+        # Check illegal content
+        for keyword in self.illegal_keywords:
+            if keyword in query_lower:
+                return False, "Query blocked: Contains illegal content reference"
+        
+        # Check injection
+        for pattern in self.injection_patterns:
+            if re.search(pattern, query_lower):
+                return False, "Query blocked: Potential security threat"
+        
+        return True, "Valid"
+    
     def ask(self, question: str) -> str:
         """Ask legal question safely"""
         # Step 1: Validate input
-        is_valid, message = self.security.validate(question)
+        is_valid, message = self._validate_input(question)
         if not is_valid:
             return f"❌ {message}\n\nI cannot assist with that query. Please ask about general legal information or consult a licensed attorney."
         
@@ -139,15 +164,9 @@ def run_legal_bot():
     print("I will refuse any queries about illegal activities.")
     print("Type 'quit' to exit.\n")
     
-    # Initialize bot (replace with your API key)
-    api_key = input("Enter your API key (OpenAI or Gemini): ").strip()
-    if not api_key:
-        print("❌ API key required!")
-        return
-    
-    provider = input("Choose provider (openai/gemini) [default: openai]: ").strip().lower()
-    if provider not in ["openai", "gemini"]:
-        provider = "openai"
+    # Use Gemini API key
+    api_key = "AIzaSyB2yDkLyufceKxz167CE1axVmTSLDIhlRE"
+    provider = "gemini"
     
     bot = SecureLegalBot(api_key, provider)
     

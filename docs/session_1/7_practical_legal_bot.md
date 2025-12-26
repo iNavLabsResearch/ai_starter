@@ -57,91 +57,55 @@ User Input → Input Validator → Security Check → AI Processing → Output F
 
 ## 💻 Complete Implementation
 
-### Step 1: Security Guardrails
-
-```python
-import re
-from typing import List, Tuple
-
-class SecurityGuard:
-    """Security guardrails for legal bot"""
-    
-    def __init__(self):
-        # Illegal activities to block
-        self.illegal_keywords = [
-            "how to hack",
-            "how to steal",
-            "how to cheat",
-            "how to scam",
-            "illegal way",
-            "break the law",
-            "avoid taxes illegally",
-            "money laundering",
-            "drug dealing",
-            "weapon",
-            "violence"
-        ]
-        
-        # Prompt injection patterns
-        self.injection_patterns = [
-            r"ignore.*instruction",
-            r"forget.*you.*are",
-            r"system.*prompt",
-            r"previous.*instruction",
-            r"act.*as.*if"
-        ]
-    
-    def check_illegal_content(self, query: str) -> Tuple[bool, str]:
-        """Check if query contains illegal content"""
-        query_lower = query.lower()
-        
-        for keyword in self.illegal_keywords:
-            if keyword in query_lower:
-                return False, f"Query blocked: Contains illegal content reference"
-        
-        return True, "Safe"
-    
-    def check_injection(self, query: str) -> Tuple[bool, str]:
-        """Check for prompt injection attempts"""
-        query_lower = query.lower()
-        
-        for pattern in self.injection_patterns:
-            if re.search(pattern, query_lower):
-                return False, "Query blocked: Potential security threat"
-        
-        return True, "Safe"
-    
-    def validate(self, query: str) -> Tuple[bool, str]:
-        """Complete validation"""
-        # Check illegal content
-        is_safe, msg = self.check_illegal_content(query)
-        if not is_safe:
-            return False, msg
-        
-        # Check injection
-        is_safe, msg = self.check_injection(query)
-        if not is_safe:
-            return False, msg
-        
-        return True, "Valid"
-```
-
----
-
-### Step 2: Legal Bot Class
+### Step 1: Legal Bot Class with Inline Security
 
 ```python
 import requests
-from typing import Optional
+import re
+from typing import Tuple
 
 class SecureLegalBot:
     """Secure legal advice bot"""
     
-    def __init__(self, api_key: str, provider: str = "openai"):
+    def __init__(self, api_key: str, provider: str = "gemini"):
         """Initialize legal bot"""
         self.api_key = api_key
         self.provider = provider
-        self.security = SecurityGuard()
+        
+        # Security keywords (inline security check)
+        self.illegal_keywords = [
+            "how to hack", "how to steal", "how to cheat",
+            "illegal way", "break the law", "avoid taxes illegally",
+            "money laundering", "drug dealing", "weapon", "violence"
+        ]
+        self.injection_patterns = [
+            r"ignore.*instruction", r"forget.*you.*are",
+            r"system.*prompt", r"previous.*instruction"
+        ]
+        
+    
+    def _validate_input(self, query: str) -> Tuple[bool, str]:
+        """Validate input for security"""
+        query_lower = query.lower()
+        
+        # Check illegal content
+        for keyword in self.illegal_keywords:
+            if keyword in query_lower:
+                return False, "Query blocked: Contains illegal content reference"
+        
+        # Check injection
+        for pattern in self.injection_patterns:
+            if re.search(pattern, query_lower):
+                return False, "Query blocked: Potential security threat"
+        
+        return True, "Valid"
+    
+    def ask(self, question: str) -> str:
+        """Ask legal question safely"""
+        # Step 1: Validate input
+        is_valid, message = self._validate_input(question)
+        if not is_valid:
+            return f"❌ {message}\n\nI cannot assist with that query."
         
         # System prompt with strict boundaries
         self.system_prompt = """You are a legal information assistant.

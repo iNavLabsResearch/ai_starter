@@ -50,7 +50,7 @@ All working code examples are in `src/session_1/`:
 - `4_decorators_example.py` - Decorator patterns
 - `5_api_client.py` - API client implementation
 - `6_gemini_openai_client.py` - AI API clients
-- `7_security_guard.py` - Security guardrails
+- Security guardrails (inline in legal bot)
 - `8_legal_bot.py` - Legal advice bot
 - `9_math_fundamentals.py` - Math implementations
 - `secure_intern_app.py` - Complete Streamlit app
@@ -95,7 +95,7 @@ streamlit run src/session_1/secure_intern_app.py
 ### Section 2: AI Basics & Security (15 minutes)
 - **Topics:** Prompt Engineering, Prompt Injection, Jailbreaking, Guardrails
 - **Practical:** Security implementations
-- **Files:** `6_ai_basics_security.md`, `7_security_guard.py`
+- **Files:** `6_ai_basics_security.md` (security concepts explained)
 
 ### Practical Projects
 - **Legal Bot:** `7_practical_legal_bot.md`, `8_legal_bot.py`

@@ -3,17 +3,18 @@ Pydantic & Type Hints Example
 Reference: docs/session_1/3_advanced_python_oop.md
 """
 
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, Field, field_validator, ConfigDict
 from typing import Optional, Literal
 
 class UserInput(BaseModel):
     """User input model with validation"""
     name: str = Field(..., min_length=2, max_length=50)
     age: int = Field(..., ge=18, le=100)  # ge = greater or equal
-    email: str = Field(..., regex=r'^[\w\.-]+@[\w\.-]+\.\w+$')
+    email: str = Field(..., pattern=r'^[\w\.-]+@[\w\.-]+\.\w+$')
     role: Optional[str] = "user"
     
-    @validator('name')
+    @field_validator('name')
+    @classmethod
     def name_must_not_be_empty(cls, v):
         if not v.strip():
             raise ValueError('Name cannot be empty')
@@ -22,14 +23,12 @@ class UserInput(BaseModel):
 
 class AIConfig(BaseModel):
     """AI model configuration"""
+    model_config = ConfigDict(frozen=True)  # Makes it immutable
+    
     model_name: Literal["gpt-4", "gpt-3.5", "claude"] = "gpt-4"
     temperature: float = Field(0.7, ge=0.0, le=2.0)
     max_tokens: int = Field(1000, ge=1, le=4000)
     system_prompt: str = "You are a helpful assistant."
-    
-    class Config:
-        """Pydantic configuration"""
-        frozen = True  # Makes it immutable
 
 
 # Example usage

@@ -6,6 +6,7 @@ Reference: docs/session_1/5_practical_gemini_openai.md
 import requests
 import json
 from typing import Literal
+from openai import OpenAI
 
 class GeminiClient:
     """Google Gemini API client"""
@@ -13,11 +14,10 @@ class GeminiClient:
     def __init__(self, api_key: str):
         """Initialize Gemini client"""
         self.api_key = api_key
-        self.base_url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent"
     
     def chat(self, prompt: str) -> str:
         """Send prompt to Gemini and get response"""
-        url = f"{self.base_url}?key={self.api_key}"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={self.api_key}"
         
         payload = {
             "contents": [{
@@ -49,40 +49,26 @@ class GeminiClient:
 
 
 class OpenAIClient:
-    """OpenAI API client"""
+    """OpenAI API client using OpenAI SDK"""
     
     def __init__(self, api_key: str):
         """Initialize OpenAI client"""
-        self.api_key = api_key
-        self.base_url = "https://api.openai.com/v1/chat/completions"
-        self.headers = {
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json"
-        }
+        self.client = OpenAI(api_key=api_key)
     
     def chat(self, prompt: str, model: str = "gpt-3.5-turbo") -> str:
         """Send prompt to OpenAI and get response"""
-        payload = {
-            "model": model,
-            "messages": [
-                {"role": "user", "content": prompt}
-            ],
-            "temperature": 0.7,
-            "max_tokens": 1000
-        }
-        
         try:
-            response = requests.post(
-                self.base_url,
-                json=payload,
-                headers=self.headers
+            response = self.client.chat.completions.create(
+                model=model,
+                messages=[
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=0.7,
+                max_tokens=1000
             )
-            response.raise_for_status()
-            
-            result = response.json()
-            return result['choices'][0]['message']['content']
+            return response.choices[0].message.content
         
-        except requests.exceptions.RequestException as e:
+        except Exception as e:
             return f"Error: {str(e)}"
 
 
@@ -141,9 +127,18 @@ class SimpleChatBot:
 
 # Example usage
 if __name__ == "__main__":
-    # Note: Replace with actual API keys
-    print("Example usage (requires API keys):")
-    print("# openai_client = OpenAIClient('YOUR_OPENAI_KEY')")
-    print("# response = openai_client.chat('Hello!')")
-    print("# print(response)")
-
+    # Test with Gemini (using provided API key)
+    print("Testing Gemini API...")
+    gemini_key = "AIzaSyB2yDkLyufceKxz167CE1axVmTSLDIhlRE"
+    gemini = GeminiClient(gemini_key)
+    
+    response = gemini.chat("Explain AI in one sentence.")
+    print(f"Gemini Response: {response}\n")
+    
+    # Test chatbot
+    print("Testing SimpleChatBot with Gemini...")
+    bot = SimpleChatBot("gemini", gemini_key)
+    bot_response = bot.chat("What is Python?")
+    print(f"Bot Response: {bot_response}\n")
+    
+    print("✅ All tests passed!")

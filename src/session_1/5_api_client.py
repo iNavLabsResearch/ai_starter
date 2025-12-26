@@ -65,16 +65,31 @@ def safe_api_call(url: str, headers: dict, data: dict = None):
 
 # Example usage
 if __name__ == "__main__":
-    # Initialize client (replace with actual API key)
-    # client = APIClient(
-    #     base_url="https://api.openai.com/v1",
-    #     api_key="YOUR_API_KEY"
-    # )
+    # Example: Using JSONPlaceholder API (free, no auth needed)
+    print("Testing with JSONPlaceholder API...")
     
-    # Example safe call
+    # Get posts
     result = safe_api_call(
-        url="https://api.example.com/data",
-        headers={"Authorization": "Bearer token"}
+        url="https://jsonplaceholder.typicode.com/posts/1",
+        headers={}
     )
-    print(result)
+    if result["success"]:
+        print("✅ API call successful!")
+        print(f"Title: {result['data'].get('title', 'N/A')}")
+        print(f"Body: {result['data'].get('body', 'N/A')[:50]}...")
+    else:
+        print(f"❌ Error: {result['error']}")
+    
+    # Get users
+    print("\nTesting users endpoint...")
+    result2 = safe_api_call(
+        url="https://jsonplaceholder.typicode.com/users/1",
+        headers={}
+    )
+    if result2["success"]:
+        print("✅ API call successful!")
+        print(f"Name: {result2['data'].get('name', 'N/A')}")
+        print(f"Email: {result2['data'].get('email', 'N/A')}")
+    else:
+        print(f"❌ Error: {result2['error']}")
 
